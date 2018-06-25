@@ -1,0 +1,64 @@
+<form>    
+  <div class="row">     
+    
+    <div class="col-md-5">  
+      <legend class="text-center header">Lend</legend>
+      <label for="editorial">Name </label>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">*</span>
+        </div>
+        <input [(ngModel)]="lend.name" autocomplete="off" type="text" id="name" name="name" class="form-control">
+      </div>
+
+      <div class="form-row">
+        <div class="col-6">
+            <label for="languaje">To Day</label>
+            <input value="{{ day | date }}" type="text" class="form-control" readonly>
+          </div>
+        <div class="col-6">
+          <label for="title">Return Day</label>
+          <div class="input-group mb-3">
+              <input [(ngModel)]="lend.returnday" type="date" name="returnday" class="form-control">
+          </div>
+        </div>    
+      </div>        
+      <br>
+      <input (click)="createUpdate($event.target.files)" type="submit" class="btn btn-success btn-lg btn-block" value="submit">                
+    </div> 
+
+    <div class="col-md-7">   
+      <legend class="text-center header">Book</legend>      
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input type="text" readonly name="_id" [(ngModel)]="book._id" class="form-control">
+      </div>
+      <div class="form-row">
+        <div class="col-6">
+          <label for="title">Title</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">T</label>
+            </div>      
+            <input readonly autocomplete="off" type="text" name="title" [(ngModel)]="book.title" class="form-control">
+          </div>
+          <label for="editorial">Editorial</label>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">&</span>
+            </div>
+            <input readonly autocomplete="off" type="text" name="editorial" [(ngModel)]="book.editorial" class="form-control">
+          </div>
+          <label for="languaje">Languaje</label>
+          <input readonly name="languaje" [(ngModel)]="book.languaje" class="form-control">     
+        </div>
+        <div class="col-6">      
+          <label>Foto Referencial</label>
+          <img [src]="book.picture" style="height: 211px;" class="card-img-top" >
+        </div>           
+      </div>      
+    </div> 
+
+  </div>
+</form>
+

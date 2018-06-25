@@ -1,0 +1,36 @@
+<h4
+  class="card-title">Lends
+  <button [routerLink]="['/book']"    
+    style="float: right;"
+    class="btn btn-outline-primary">New Lend
+  </button>
+</h4>
+<table class="table table-hover"  *ngIf="lends != 0">
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Name</th>
+      <th>Loan Day</th>
+      <th>Day of Return</th>
+      <th>Book</th>
+      <th></th> 
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let b of lends">
+      <td>{{ b._id }}</td>
+      <td>{{ b.name }}</td>
+      <td>{{ b.today }}</td>
+      <td>{{ b.returnday }}</td>
+      <td>{{ b.book.title }}</td>
+      <td>
+        <div class="btn-group" role="group" aria-label="Basic example">       
+          <button class="btn btn-outline-primary" (click)="toDetail(b)">Detail</button>   
+          <button class="btn btn-outline-danger" (click)="doDelete(b)">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<h1 *ngIf="lends == 0">No Lends yet.</h1>
